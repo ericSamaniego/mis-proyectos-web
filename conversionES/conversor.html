@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiles/conversor.css">
+    <link rel="stylesheet" href="estiles/general.css">
+    <title>Convertidor de Divisas</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        
+</head>
+<body>
+  <header>
+    <a href="index.html"><img src="imagenes/tituloconversion.png" width="300px" alt=""></a>
+      <ul class="botones">
+      <li><a href="index.html">inicio</a></li>
+      <li><a href="conversor.html">conversor</a></li>
+      <li><a href="tasas.html">tasas</a></li>
+      
+    </ul>
+  </header>
+
+    <div class="container">
+
+        <h1>Convertidor de Divisas</h1>
+
+        <!-- Caja de cambio -->
+        <div class="exchange-box">
+
+            <!-- Entrada -->
+            <div class="input-group">
+                <label for="from">Moneda que tienes:</label>
+                <select id="from"></select>
+
+                <input type="number" id="amount" placeholder="Cantidad" value="1">
+            </div>
+
+            <!-- Botón de intercambio -->
+            <button id="swapBtn">⇆</button>
+
+            <!-- Salida -->
+            <div class="input-group">
+                <label for="to">Moneda que quieres:</label>
+                <select id="to"></select>
+
+                <input type="text" id="result" placeholder="Resultado" readonly>
+            </div>
+        </div>
+
+        <!-- Botones de rango -->
+        <div class="range-container">
+            <button class="range-btn active">1D</button>
+            <button class="range-btn">5D</button>
+            <button class="range-btn">1M</button>
+            <button class="range-btn">6M</button>
+            <button class="range-btn">1Y</button>
+        </div>
+
+        <!-- Gráfica -->
+        <div class="chart-box">
+            <h3 id="chart-title">Histórico</h3>
+            <canvas id="currencyChart" height="150"></canvas>
+        </div>
+
+    </div>
+
+    <!-- Tu archivo JS -->
+    <script src="scripts/conversor.js"></script>
+
+</body>
+</html>
