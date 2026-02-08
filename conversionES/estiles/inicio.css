@@ -1,3 +1,4 @@
+
 .princiconte{
     
     width: 55%;
@@ -86,3 +87,48 @@
   opacity: 1;
   transform: translateX(0);
 }
+@media (max-width: 768px) {
+
+  .princi {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .princiconte {
+    width: 100%;
+  }
+
+  .princiconte h2 {
+    font-size: 28px;
+  }
+
+  .princiconte p {
+    font-size: 16px;
+  }
+
+  .caja2 {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .caja2 img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .caja2t {
+    padding-left: 0;
+    margin-top: 15px;
+  }
+
+  .caja1 h2,
+  .caja2 h2 {
+    font-size: 28px;
+  }
+
+  .caja1 ul li,
+  .caja2 p {
+    font-size: 16px;
+  }
+}
+

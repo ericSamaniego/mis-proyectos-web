@@ -1,5 +1,4 @@
 
-
 .container {
    max-width: 95%px;
    margin: auto;
@@ -93,3 +92,27 @@
             margin-bottom: 15px;
             font-size: 20px;
         }
+
+@media (max-width: 768px) {
+
+  .exchange-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #swapBtn {
+    width: 100%;
+  }
+
+  .range-container {
+    flex-wrap: wrap;
+  }
+
+  .chart-box {
+    padding: 15px;
+  }
+
+  canvas {
+    max-width: 100%;
+  }
+}

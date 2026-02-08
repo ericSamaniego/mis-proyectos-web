@@ -40,3 +40,30 @@ header{
 .botones li:hover{
     transform: scale(0.96);
 }
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  header img {
+    width: 220px;
+  }
+
+  .botones {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .botones li {
+    padding: 6px 12px;
+    margin: 5px;
+  }
+}

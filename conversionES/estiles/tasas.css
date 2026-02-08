@@ -1,3 +1,4 @@
+
 .rates-section {
   padding: 60px 20px;
 }
@@ -47,3 +48,19 @@ p{
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+
+  h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .rates-section {
+    padding: 30px 10px;
+  }
+}
