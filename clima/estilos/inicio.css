@@ -1,3 +1,4 @@
+
 body{
   margin:0;
   font-family: Arial, sans-serif;
@@ -141,4 +142,72 @@ body{
   margin-bottom:10px;
   padding:10px;
   border-radius:10px;
+}
+
+/* ============================= */
+/*  MODO MÓVIL */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* El layout principal pasa a vertical */
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .topPanel {
+    grid-template-rows: auto auto auto;
+    height: auto;
+  }
+
+  .bottomPanel {
+    height: auto;
+  }
+
+  /* Clima principal */
+  .mainWeather {
+    grid-template-columns: 1fr;
+  }
+
+  /* El bloque de temperatura y ubicación */
+  .leftBlock {
+    grid-template-rows: auto auto;
+  }
+
+  /* Imagen más pequeña y proporcionada */
+  .imageBlock img {
+    height: 200px;
+  }
+
+  /* Grid de datos actuales en una sola columna */
+  .currentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Buscador ocupa todo el ancho */
+  .search {
+    flex-direction: column;
+  }
+
+  .search input,
+  .search button {
+    width: 100%;
+  }
+
+  /* Temperatura no tan gigante */
+  .tempBig {
+    font-size: 36px;
+  }
+
+  /* Tarjetas un poco más compactas */
+  .card {
+    padding: 12px;
+  }
+
+  /* Daily se vuelve lista normal */
+  .daily li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
