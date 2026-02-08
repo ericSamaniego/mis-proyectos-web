@@ -1,0 +1,88 @@
+.princiconte{
+    
+    width: 55%;
+    color: aquamarine;
+    
+}
+.princiconte h2{
+        font-size: 35px;
+    }
+    .princiconte p{
+        font-size: 20px;
+    }
+.princi{
+     display: flex;
+  align-items: center;   /* centra verticalmente */
+  gap: 20px;    
+}
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #0a3d62;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #1e5fa3;
+}
+
+.princi img{
+     width: 300px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+.caja1{
+    background-color: aqua;
+    width: 100%;
+    color: #0d1117;
+    text-align: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-top: 10px
+    
+}
+
+.caja1 h2{
+        font-size: 35px;
+}
+    .caja1 ul li{
+        font-size: 20px;
+        list-style-type: none;
+    }
+.caja2{
+    display: flex;
+    width: 95%;
+    align-items: center;
+}
+.caja2 h2{
+    font-size: 35px;
+    color: aqua;
+}
+.caja2 p{
+    font-size: 20px;
+    color: aqua;
+}
+.caja2t{
+    padding-left: 20px;
+}
+.reveal {
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 1.9s ease;
+}
+
+.reveal.left {
+  transform: translateX(-100px);
+}
+
+.reveal.right {
+  transform: translateX(100px);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateX(0);
+}

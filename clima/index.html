@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Clima 🌤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="estilos/inicio.css">
+</head>
+<body>
+<body>
+
+  <header class="top">
+    <h1>🌦️ Clima</h1>
+    <div class="search">
+      <input id="cityInput" placeholder="Ej: Asunción, Buenos Aires">
+      <button onclick="buscarCiudad()">Buscar</button>
+    </div>
+  </header>
+
+  <main class="app">
+
+    <!-- 60% -->
+    <section class="topPanel">
+
+      <div class="mainWeather">
+
+        <div class="leftBlock">
+          <div id="location" class="card"></div>
+          <div id="tempOnly" class="card tempBig"></div>
+        </div>
+
+        <div id="weatherImage" class="imageBlock"></div>
+
+      </div>
+
+      <div id="hourly" class="hourly card"></div>
+
+      <div id="current" class="currentGrid card"></div>
+
+    </section>
+
+    <!-- 40% -->
+    <section class="bottomPanel">
+      <div id="daily" class="daily card"></div>
+    </section>
+
+  </main>
+<script src="scripts/inicio.js"></script>
+</body>
+</html>

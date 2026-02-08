@@ -1,0 +1,95 @@
+
+
+.container {
+   max-width: 95%px;
+   margin: auto;
+    justify-content: space-between;
+ }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        /* --- Caja de selects y entradas --- */
+        .exchange-box {
+            width: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .input-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: auto;
+        }
+
+        select, input {
+            padding: 10px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: #c9d1d9;
+            border-radius: 6px;
+            font-size: 16px;
+            width: auto;
+        }
+
+        #swapBtn {
+            background: #238636;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: auto;
+        }
+
+        #swapBtn:hover {
+            background: #2ea043;
+        }
+
+        /* --- Botones del rango --- */
+        .range-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+            width: auto;
+        }
+
+        .range-btn {
+            padding: 8px 15px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: #c9d1d9;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .range-btn.active {
+            background: #238636;
+            border-color: #2ea043;
+        }
+
+        /* --- Gráfica --- */
+        .chart-box {
+            margin-top: 30px;
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            width: auto;
+        }
+
+        #chart-title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
