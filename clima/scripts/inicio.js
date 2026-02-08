@@ -3,7 +3,7 @@
 // ===============================
 
 // Asunción por defecto
-cargarClima(-25.2637, -57.5759, "Asunción");
+cargarClima(-25.2637, -57.5759, "Asunción, PY");
 
 // Buscar con Enter
 document.getElementById("cityInput").addEventListener("keydown", function (e) {
@@ -40,14 +40,18 @@ function cargarClima(lat, lon, nombre) {
     })
     .catch(() => alert("Error cargando el clima"));
 }
+
 function mostrarClima(data, nombre) {
+  // Location
   document.getElementById("location").innerHTML = `
     <h2>${nombre}</h2>
   `;
 
+  // Detectar lluvia
   const llueveAhora = data.hourly.precipitation[0] > 0;
   const llueveHoy = data.daily.precipitation_sum[0] > 0;
 
+  // Weather code
   const weatherCode = data.current_weather.weathercode;
 
   let estadoClima = "";
@@ -70,59 +74,51 @@ function mostrarClima(data, nombre) {
     imagen = "imagenes/tormenta.jpeg";
   } else {
     estadoClima = "Nublado";
-    imagen = "imagenes/nublado.jpg";
+    imagen = "imagenes/nublado.jpeg";
   }
 
+  // Temperatura grande
+  document.getElementById("tempOnly").innerHTML = `
+    ${data.current_weather.temperature}°C
+  `;
+
+  // Current completo (para el grid)
   document.getElementById("current").innerHTML = `
-    <h2>Ahora</h2>
-    <p>🌡️ Temperatura: ${data.current_weather.temperature}°C</p>
-    <p>🌤️ Estado: ${estadoClima}</p>
-    <p>🌧️ Ahora: ${llueveAhora ? "Sí está lloviendo" : "No está lloviendo"}</p>
-    <p>☔ Hoy: ${llueveHoy ? "Probabilidad de lluvia" : "No se esperan lluvias"}</p>
+    <div>🌡️ Temperatura</div><div>${data.current_weather.temperature}°C</div>
+    <div>🌤️ Estado</div><div>${estadoClima}</div>
+    <div>🌧️ Ahora</div><div>${llueveAhora ? "Sí" : "No"}</div>
+    <div>☔ Hoy</div><div>${llueveHoy ? "Posible lluvia" : "Sin lluvia"}</div>
   `;
 
+  // Imagen
   document.getElementById("weatherImage").innerHTML = `
-    <img src="${imagen}" alt="${estadoClima}" style="width:100%; border-radius:10px;">
+    <img src="${imagen}" alt="${estadoClima}">
   `;
 
-  let hourlyHTML = "<h2>Próximas horas</h2><ul>";
+  // Hourly horizontal
+  let hourlyHTML = "<ul>";
+  for (let i = 0; i < 12; i++) {
+    const hora = data.hourly.time[i].split("T")[1];
+    hourlyHTML += `<li>${hora}<br>${data.hourly.temperature_2m[i]}°C</li>`;
+  }
+  hourlyHTML += "</ul>";
+  document.getElementById("hourly").innerHTML = hourlyHTML;
 
-for (let i = 0; i < 12; i++) {
-  const hora = data.hourly.time[i].split("T")[1]; // "15:00"
-  hourlyHTML += `<li>${hora} → ${data.hourly.temperature_2m[i]}°C</li>`;
-}
+  // Daily vertical
+  const diasSemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+  let dailyHTML = "<ul>";
 
-hourlyHTML += "</ul>";
-document.getElementById("hourly").innerHTML = hourlyHTML;
+  for (let i = 1; i <= 7 && i < data.daily.time.length; i++) {
+    const fecha = new Date(data.daily.time[i]);
+    const dia = diasSemana[fecha.getDay()];
+    dailyHTML += `
+      <li>
+        <strong>${dia}</strong><br>
+        ⬆️ ${data.daily.temperature_2m_max[i]}°C | ⬇️ ${data.daily.temperature_2m_min[i]}°C
+      </li>
+    `;
+  }
 
-
-  const diasSemana = [
-  "Domingo",
-  "Lunes",
-  "Martes",
-  "Miércoles",
-  "Jueves",
-  "Viernes",
-  "Sábado"
-];
-
-let dailyHTML = "<h2>Próximos días</h2><ul>";
-
-// empezamos desde mañana (i = 1)
-// mostramos 7 días
-for (let i = 1; i <= 7 && i < data.daily.time.length; i++) {
-  const fecha = new Date(data.daily.time[i]);
-  const dia = diasSemana[fecha.getDay()];
-
-  dailyHTML += `
-    <li>
-      <strong>${dia}</strong>:
-      ⬆️ ${data.daily.temperature_2m_max[i]}°C /
-      ⬇️ ${data.daily.temperature_2m_min[i]}°C
-    </li>
-  `;
-}
-
-dailyHTML += "</ul>";
-document.getElementById("daily").innerHTML = dailyHTML;
+  dailyHTML += "</ul>";
+  document.getElementById("daily").innerHTML = dailyHTML;
 }

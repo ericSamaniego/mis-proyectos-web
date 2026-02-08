@@ -7,23 +7,44 @@
     <link rel="stylesheet" href="estilos/inicio.css">
 </head>
 <body>
+<body>
 
-  <h1>🌦️ Clima</h1>
+  <header class="top">
+    <h1>🌦️ Clima</h1>
+    <div class="search">
+      <input id="cityInput" placeholder="Ej: Asunción, Buenos Aires">
+      <button onclick="buscarCiudad()">Buscar</button>
+    </div>
+  </header>
 
-  <div class="search">
-<input id="cityInput" placeholder="Ej: Asunción, Buenos Aires">
-    <button onclick="buscarCiudad()">Buscar</button>
-  </div>
-  <div class="info">
-  <div id="location" class="card"></div>
-  <div id="current" class="card"></div>
-  <div id="weatherImage" class="card"></div>
-</div>
+  <main class="app">
 
-  <div id="hourly" class="card"></div>
-  <div id="daily" class="card"></div>
+    <!-- 60% -->
+    <section class="topPanel">
 
-  <script src="scripts/inicio.js"></script>
+      <div class="mainWeather">
 
+        <div class="leftBlock">
+          <div id="location" class="card"></div>
+          <div id="tempOnly" class="card tempBig"></div>
+        </div>
+
+        <div id="weatherImage" class="imageBlock"></div>
+
+      </div>
+
+      <div id="hourly" class="hourly card"></div>
+
+      <div id="current" class="currentGrid card"></div>
+
+    </section>
+
+    <!-- 40% -->
+    <section class="bottomPanel">
+      <div id="daily" class="daily card"></div>
+    </section>
+
+  </main>
+<script src="scripts/inicio.js"></script>
 </body>
 </html>
